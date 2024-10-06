@@ -2,6 +2,7 @@ import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:vilavi_task_assistant/domain/repository/task_repository.dart';
+import 'package:vilavi_task_assistant/utils/app_strings.dart';
 
 part 'add_task_event.dart';
 part 'add_task_state.dart';
@@ -23,7 +24,8 @@ class AddTaskBloc extends Bloc<AddTaskEvent, AddTaskState> {
       await _repository.addTask(event.title);
       emit(const AddTaskState.initial(isAdded: true));
     } else {
-      emit(const AddTaskState.error(errorMessage: 'Title cannot be empty'));
+      emit(const AddTaskState.error(
+          errorMessage: AppStrings.titleCannotNotBeEmpty));
     }
   }
 }

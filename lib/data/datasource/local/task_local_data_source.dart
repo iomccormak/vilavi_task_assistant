@@ -3,10 +3,11 @@ import 'package:injectable/injectable.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:vilavi_task_assistant/domain/entity/task_entity.dart';
 
+const String _tasksKey = 'tasks';
+
 @injectable
 class TaskLocalDataSource {
   final SharedPreferences _prefs;
-  static const String _tasksKey = 'tasks';
 
   TaskLocalDataSource(this._prefs);
 
@@ -18,7 +19,6 @@ class TaskLocalDataSource {
         'status': task.status,
       };
     }).toList();
-
     await _prefs.setString(_tasksKey, jsonEncode(tasksJson));
   }
 
@@ -36,7 +36,7 @@ class TaskLocalDataSource {
     }).toList();
   }
 
-  Future<void> updateTaskStatus(int taskId) async {
+  Future<void> changeStatus(int taskId) async {
     final tasks = getTasks();
     final updatedTasks = tasks.map((task) {
       if (task.id == taskId) {
@@ -45,14 +45,16 @@ class TaskLocalDataSource {
       }
       return task;
     }).toList();
-
     await saveTasks(updatedTasks);
   }
 
   Future<void> addTask(String title) async {
     final tasks = getTasks();
-    final newId = tasks.length + 1;
-    final newTask = TaskEntity(id: newId, title: title, status: false);
+    final newTask = TaskEntity(
+      id: tasks.length + 1,
+      title: title,
+      status: false,
+    );
     tasks.insert(0, newTask);
     await saveTasks(tasks);
   }

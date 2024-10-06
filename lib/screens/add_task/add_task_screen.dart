@@ -5,6 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:vilavi_task_assistant/di/locator.dart';
 import 'package:vilavi_task_assistant/navigation/app_router.gr.dart';
 import 'package:vilavi_task_assistant/screens/add_task/bloc/add_task_bloc.dart';
+import 'package:vilavi_task_assistant/utils/app_strings.dart';
 import 'package:vilavi_task_assistant/widgets/main_button.dart';
 
 @RoutePage()
@@ -38,7 +39,7 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
               automaticallyImplyLeading: false,
               backgroundColor: Colors.black,
               title: Text(
-                'Add new task',
+                AppStrings.addNewTask,
                 style: TextStyle(
                   fontSize: 20.sp,
                   color: Colors.white,
@@ -61,7 +62,7 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
                   TextField(
                     controller: _titleController,
                     decoration: InputDecoration(
-                      labelText: 'Enter task title',
+                      labelText: AppStrings.enterTaskTitle,
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(12.r),
                         borderSide: const BorderSide(color: Colors.grey),
@@ -84,7 +85,7 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
                     SizedBox(height: 16.h),
                   ],
                   MainButton(
-                    label: 'Add',
+                    label: AppStrings.add,
                     onTap: () => context.read<AddTaskBloc>().add(
                           AddTask(
                             title: _titleController.text,

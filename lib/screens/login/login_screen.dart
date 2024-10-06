@@ -5,6 +5,7 @@ import 'package:vilavi_task_assistant/di/locator.dart';
 import 'package:vilavi_task_assistant/navigation/app_router.gr.dart';
 import 'package:vilavi_task_assistant/screens/login/bloc/login_bloc.dart';
 import "package:flutter_bloc/flutter_bloc.dart";
+import 'package:vilavi_task_assistant/utils/app_strings.dart';
 import 'package:vilavi_task_assistant/widgets/main_button.dart';
 
 @RoutePage()
@@ -38,13 +39,13 @@ class _LoginScreenState extends State<LoginScreen> {
           return Scaffold(
             backgroundColor: Colors.white,
             body: Padding(
-              padding: EdgeInsets.all(26.w),
+              padding: EdgeInsets.all(26.r),
               child: Center(
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
-                      'VILAVI',
+                      AppStrings.vilavi,
                       style: TextStyle(
                         color: Colors.black,
                         fontSize: 32.sp,
@@ -52,7 +53,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       ),
                     ),
                     Text(
-                      'Task Assistant',
+                      AppStrings.taskAssistant,
                       style: TextStyle(
                         color: Colors.black,
                         fontSize: 18.sp,
@@ -62,7 +63,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     TextField(
                       controller: _usernameController,
                       decoration: InputDecoration(
-                        labelText: 'Username',
+                        labelText: AppStrings.username,
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(12.r),
                           borderSide: const BorderSide(color: Colors.grey),
@@ -78,7 +79,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       controller: _passwordController,
                       obscureText: true,
                       decoration: InputDecoration(
-                        labelText: 'Password',
+                        labelText: AppStrings.password,
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(12.r),
                           borderSide: const BorderSide(color: Colors.grey),
@@ -91,7 +92,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                     SizedBox(height: 16.h),
                     MainButton(
-                      label: 'Login',
+                      label: AppStrings.login,
                       onTap: () => context.read<LoginBloc>().add(
                             LoginEvent.login(
                               username: _usernameController.text,

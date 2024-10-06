@@ -5,6 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:vilavi_task_assistant/di/locator.dart';
 import 'package:vilavi_task_assistant/navigation/app_router.gr.dart';
 import 'package:vilavi_task_assistant/screens/tasks/bloc/tasks_bloc.dart';
+import 'package:vilavi_task_assistant/utils/app_strings.dart';
 
 class TasksScreen extends StatelessWidget {
   const TasksScreen({super.key});
@@ -16,7 +17,7 @@ class TasksScreen extends StatelessWidget {
         automaticallyImplyLeading: false,
         backgroundColor: Colors.black,
         title: Text(
-          'VILAVI Task Assistant',
+          '${AppStrings.vilavi} ${AppStrings.taskAssistant}',
           style: TextStyle(
             fontSize: 20.sp,
             color: Colors.white,
