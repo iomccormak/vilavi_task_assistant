@@ -12,36 +12,48 @@ class TasksScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        automaticallyImplyLeading: false,
-        backgroundColor: Colors.black,
-        title: Text(
-          '${AppStrings.vilavi} ${AppStrings.taskAssistant}',
-          style: TextStyle(
-            fontSize: 20.sp,
-            color: Colors.white,
-          ),
-        ),
-        actions: [
-          IconButton(
-            icon: const Icon(
-              Icons.add,
-              color: Colors.white,
+    return BlocProvider(
+      create: (context) => getIt<TasksBloc>()..add(const TasksEvent.started()),
+      child: BlocBuilder<TasksBloc, TasksState>(
+        builder: (context, state) {
+          return Scaffold(
+            appBar: AppBar(
+              automaticallyImplyLeading: false,
+              backgroundColor: Colors.black,
+              title: Text(
+                '${AppStrings.vilavi} ${AppStrings.taskAssistant}',
+                style: TextStyle(
+                  fontSize: 20.sp,
+                  color: Colors.white,
+                ),
+              ),
+              actions: [
+                IconButton(
+                  color: Colors.white,
+                  icon: Icon(
+                    state.sort == true
+                        ? Icons.check_circle
+                        : state.sort == false
+                            ? Icons.remove_circle
+                            : Icons.sort,
+                  ),
+                  onPressed: () => context
+                      .read<TasksBloc>()
+                      .add(ChangeSort(sort: state.sort)),
+                ),
+                IconButton(
+                  icon: const Icon(
+                    Icons.add,
+                    color: Colors.white,
+                  ),
+                  onPressed: () => context.router.push(const AddTaskScreen()),
+                ),
+              ],
             ),
-            onPressed: () => context.router.push(const AddTaskScreen()),
-          ),
-        ],
-      ),
-      body: BlocProvider(
-        create: (context) =>
-            getIt<TasksBloc>()..add(const TasksEvent.started()),
-        child: BlocBuilder<TasksBloc, TasksState>(
-          builder: (context, state) {
-            return state.tasks == null
+            body: state.tasks == null
                 ? const Center(
                     child: CircularProgressIndicator(
-                      valueColor: AlwaysStoppedAnimation<Color>(Colors.black),
+                      color: Colors.black,
                     ),
                   )
                 : Padding(
@@ -56,7 +68,8 @@ class TasksScreen extends StatelessWidget {
 
                         return Container(
                           color: color,
-                          padding: const EdgeInsets.all(16.0),
+                          padding: EdgeInsets.only(
+                              left: 16.w, top: 10.h, bottom: 10.h, right: 10.w),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
@@ -72,20 +85,33 @@ class TasksScreen extends StatelessWidget {
                                 ),
                               ),
                               SizedBox(width: 16.w),
-                              Checkbox(
-                                value: task.status,
-                                onChanged: (bool? value) => context
-                                    .read<TasksBloc>()
-                                    .add(ChangeStatus(id: task.id)),
+                              Row(
+                                children: [
+                                  Checkbox(
+                                    value: task.status,
+                                    onChanged: (bool? value) => context
+                                        .read<TasksBloc>()
+                                        .add(ChangeTaskStatus(id: task.id)),
+                                  ),
+                                  IconButton(
+                                    icon: const Icon(
+                                      Icons.delete,
+                                      color: Colors.black,
+                                    ),
+                                    onPressed: () => context
+                                        .read<TasksBloc>()
+                                        .add(DeleteTask(id: task.id)),
+                                  ),
+                                ],
                               ),
                             ],
                           ),
                         );
                       },
                     ),
-                  );
-          },
-        ),
+                  ),
+          );
+        },
       ),
     );
   }

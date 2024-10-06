@@ -34,12 +34,17 @@ class TaskRepositoryImpl implements TaskRepository {
   }
 
   @override
-  Future<void> changeStatus(int id) async {
+  Future<void> changeTaskStatus(int id) async {
     await _localDataSource.changeStatus(id);
   }
 
   @override
   Future<void> addTask(String title) async {
     await _localDataSource.addTask(title);
+  }
+
+  @override
+  Future<void> deleteTask(int id) async {
+    await _localDataSource.deleteTask(id);
   }
 }

@@ -21,6 +21,7 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
     if (event.username.isNotEmpty && event.password.isNotEmpty) {
       if (event.username == LoginValues.username &&
           event.password == LoginValues.password) {
+        emit(const LoginState.initial(isAuthenticated: true));
       } else {
         emit(const LoginState.error(errorMessage: AppStrings.noFoundUser));
       }

@@ -19,38 +19,50 @@ mixin _$TasksEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
-    required TResult Function(int id) changeStatus,
+    required TResult Function(int id) changeTaskStatus,
+    required TResult Function(int id) deleteTask,
+    required TResult Function(bool? sort) changeSort,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
-    TResult? Function(int id)? changeStatus,
+    TResult? Function(int id)? changeTaskStatus,
+    TResult? Function(int id)? deleteTask,
+    TResult? Function(bool? sort)? changeSort,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
-    TResult Function(int id)? changeStatus,
+    TResult Function(int id)? changeTaskStatus,
+    TResult Function(int id)? deleteTask,
+    TResult Function(bool? sort)? changeSort,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(Started value) started,
-    required TResult Function(ChangeStatus value) changeStatus,
+    required TResult Function(ChangeTaskStatus value) changeTaskStatus,
+    required TResult Function(DeleteTask value) deleteTask,
+    required TResult Function(ChangeSort value) changeSort,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(Started value)? started,
-    TResult? Function(ChangeStatus value)? changeStatus,
+    TResult? Function(ChangeTaskStatus value)? changeTaskStatus,
+    TResult? Function(DeleteTask value)? deleteTask,
+    TResult? Function(ChangeSort value)? changeSort,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Started value)? started,
-    TResult Function(ChangeStatus value)? changeStatus,
+    TResult Function(ChangeTaskStatus value)? changeTaskStatus,
+    TResult Function(DeleteTask value)? deleteTask,
+    TResult Function(ChangeSort value)? changeSort,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -113,7 +125,9 @@ class _$StartedImpl implements Started {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
-    required TResult Function(int id) changeStatus,
+    required TResult Function(int id) changeTaskStatus,
+    required TResult Function(int id) deleteTask,
+    required TResult Function(bool? sort) changeSort,
   }) {
     return started();
   }
@@ -122,7 +136,9 @@ class _$StartedImpl implements Started {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
-    TResult? Function(int id)? changeStatus,
+    TResult? Function(int id)? changeTaskStatus,
+    TResult? Function(int id)? deleteTask,
+    TResult? Function(bool? sort)? changeSort,
   }) {
     return started?.call();
   }
@@ -131,7 +147,9 @@ class _$StartedImpl implements Started {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
-    TResult Function(int id)? changeStatus,
+    TResult Function(int id)? changeTaskStatus,
+    TResult Function(int id)? deleteTask,
+    TResult Function(bool? sort)? changeSort,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -144,7 +162,9 @@ class _$StartedImpl implements Started {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(Started value) started,
-    required TResult Function(ChangeStatus value) changeStatus,
+    required TResult Function(ChangeTaskStatus value) changeTaskStatus,
+    required TResult Function(DeleteTask value) deleteTask,
+    required TResult Function(ChangeSort value) changeSort,
   }) {
     return started(this);
   }
@@ -153,7 +173,9 @@ class _$StartedImpl implements Started {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(Started value)? started,
-    TResult? Function(ChangeStatus value)? changeStatus,
+    TResult? Function(ChangeTaskStatus value)? changeTaskStatus,
+    TResult? Function(DeleteTask value)? deleteTask,
+    TResult? Function(ChangeSort value)? changeSort,
   }) {
     return started?.call(this);
   }
@@ -162,7 +184,9 @@ class _$StartedImpl implements Started {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Started value)? started,
-    TResult Function(ChangeStatus value)? changeStatus,
+    TResult Function(ChangeTaskStatus value)? changeTaskStatus,
+    TResult Function(DeleteTask value)? deleteTask,
+    TResult Function(ChangeSort value)? changeSort,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -177,20 +201,20 @@ abstract class Started implements TasksEvent {
 }
 
 /// @nodoc
-abstract class _$$ChangeStatusImplCopyWith<$Res> {
-  factory _$$ChangeStatusImplCopyWith(
-          _$ChangeStatusImpl value, $Res Function(_$ChangeStatusImpl) then) =
-      __$$ChangeStatusImplCopyWithImpl<$Res>;
+abstract class _$$ChangeTaskStatusImplCopyWith<$Res> {
+  factory _$$ChangeTaskStatusImplCopyWith(_$ChangeTaskStatusImpl value,
+          $Res Function(_$ChangeTaskStatusImpl) then) =
+      __$$ChangeTaskStatusImplCopyWithImpl<$Res>;
   @useResult
   $Res call({int id});
 }
 
 /// @nodoc
-class __$$ChangeStatusImplCopyWithImpl<$Res>
-    extends _$TasksEventCopyWithImpl<$Res, _$ChangeStatusImpl>
-    implements _$$ChangeStatusImplCopyWith<$Res> {
-  __$$ChangeStatusImplCopyWithImpl(
-      _$ChangeStatusImpl _value, $Res Function(_$ChangeStatusImpl) _then)
+class __$$ChangeTaskStatusImplCopyWithImpl<$Res>
+    extends _$TasksEventCopyWithImpl<$Res, _$ChangeTaskStatusImpl>
+    implements _$$ChangeTaskStatusImplCopyWith<$Res> {
+  __$$ChangeTaskStatusImplCopyWithImpl(_$ChangeTaskStatusImpl _value,
+      $Res Function(_$ChangeTaskStatusImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -198,7 +222,7 @@ class __$$ChangeStatusImplCopyWithImpl<$Res>
   $Res call({
     Object? id = null,
   }) {
-    return _then(_$ChangeStatusImpl(
+    return _then(_$ChangeTaskStatusImpl(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -209,22 +233,22 @@ class __$$ChangeStatusImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$ChangeStatusImpl implements ChangeStatus {
-  const _$ChangeStatusImpl({required this.id});
+class _$ChangeTaskStatusImpl implements ChangeTaskStatus {
+  const _$ChangeTaskStatusImpl({required this.id});
 
   @override
   final int id;
 
   @override
   String toString() {
-    return 'TasksEvent.changeStatus(id: $id)';
+    return 'TasksEvent.changeTaskStatus(id: $id)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ChangeStatusImpl &&
+            other is _$ChangeTaskStatusImpl &&
             (identical(other.id, id) || other.id == id));
   }
 
@@ -234,36 +258,43 @@ class _$ChangeStatusImpl implements ChangeStatus {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$ChangeStatusImplCopyWith<_$ChangeStatusImpl> get copyWith =>
-      __$$ChangeStatusImplCopyWithImpl<_$ChangeStatusImpl>(this, _$identity);
+  _$$ChangeTaskStatusImplCopyWith<_$ChangeTaskStatusImpl> get copyWith =>
+      __$$ChangeTaskStatusImplCopyWithImpl<_$ChangeTaskStatusImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
-    required TResult Function(int id) changeStatus,
+    required TResult Function(int id) changeTaskStatus,
+    required TResult Function(int id) deleteTask,
+    required TResult Function(bool? sort) changeSort,
   }) {
-    return changeStatus(id);
+    return changeTaskStatus(id);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
-    TResult? Function(int id)? changeStatus,
+    TResult? Function(int id)? changeTaskStatus,
+    TResult? Function(int id)? deleteTask,
+    TResult? Function(bool? sort)? changeSort,
   }) {
-    return changeStatus?.call(id);
+    return changeTaskStatus?.call(id);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
-    TResult Function(int id)? changeStatus,
+    TResult Function(int id)? changeTaskStatus,
+    TResult Function(int id)? deleteTask,
+    TResult Function(bool? sort)? changeSort,
     required TResult orElse(),
   }) {
-    if (changeStatus != null) {
-      return changeStatus(id);
+    if (changeTaskStatus != null) {
+      return changeTaskStatus(id);
     }
     return orElse();
   }
@@ -272,59 +303,357 @@ class _$ChangeStatusImpl implements ChangeStatus {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(Started value) started,
-    required TResult Function(ChangeStatus value) changeStatus,
+    required TResult Function(ChangeTaskStatus value) changeTaskStatus,
+    required TResult Function(DeleteTask value) deleteTask,
+    required TResult Function(ChangeSort value) changeSort,
   }) {
-    return changeStatus(this);
+    return changeTaskStatus(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(Started value)? started,
-    TResult? Function(ChangeStatus value)? changeStatus,
+    TResult? Function(ChangeTaskStatus value)? changeTaskStatus,
+    TResult? Function(DeleteTask value)? deleteTask,
+    TResult? Function(ChangeSort value)? changeSort,
   }) {
-    return changeStatus?.call(this);
+    return changeTaskStatus?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Started value)? started,
-    TResult Function(ChangeStatus value)? changeStatus,
+    TResult Function(ChangeTaskStatus value)? changeTaskStatus,
+    TResult Function(DeleteTask value)? deleteTask,
+    TResult Function(ChangeSort value)? changeSort,
     required TResult orElse(),
   }) {
-    if (changeStatus != null) {
-      return changeStatus(this);
+    if (changeTaskStatus != null) {
+      return changeTaskStatus(this);
     }
     return orElse();
   }
 }
 
-abstract class ChangeStatus implements TasksEvent {
-  const factory ChangeStatus({required final int id}) = _$ChangeStatusImpl;
+abstract class ChangeTaskStatus implements TasksEvent {
+  const factory ChangeTaskStatus({required final int id}) =
+      _$ChangeTaskStatusImpl;
 
   int get id;
   @JsonKey(ignore: true)
-  _$$ChangeStatusImplCopyWith<_$ChangeStatusImpl> get copyWith =>
+  _$$ChangeTaskStatusImplCopyWith<_$ChangeTaskStatusImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$DeleteTaskImplCopyWith<$Res> {
+  factory _$$DeleteTaskImplCopyWith(
+          _$DeleteTaskImpl value, $Res Function(_$DeleteTaskImpl) then) =
+      __$$DeleteTaskImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({int id});
+}
+
+/// @nodoc
+class __$$DeleteTaskImplCopyWithImpl<$Res>
+    extends _$TasksEventCopyWithImpl<$Res, _$DeleteTaskImpl>
+    implements _$$DeleteTaskImplCopyWith<$Res> {
+  __$$DeleteTaskImplCopyWithImpl(
+      _$DeleteTaskImpl _value, $Res Function(_$DeleteTaskImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? id = null,
+  }) {
+    return _then(_$DeleteTaskImpl(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$DeleteTaskImpl implements DeleteTask {
+  const _$DeleteTaskImpl({required this.id});
+
+  @override
+  final int id;
+
+  @override
+  String toString() {
+    return 'TasksEvent.deleteTask(id: $id)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$DeleteTaskImpl &&
+            (identical(other.id, id) || other.id == id));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, id);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$DeleteTaskImplCopyWith<_$DeleteTaskImpl> get copyWith =>
+      __$$DeleteTaskImplCopyWithImpl<_$DeleteTaskImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function(int id) changeTaskStatus,
+    required TResult Function(int id) deleteTask,
+    required TResult Function(bool? sort) changeSort,
+  }) {
+    return deleteTask(id);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? started,
+    TResult? Function(int id)? changeTaskStatus,
+    TResult? Function(int id)? deleteTask,
+    TResult? Function(bool? sort)? changeSort,
+  }) {
+    return deleteTask?.call(id);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function(int id)? changeTaskStatus,
+    TResult Function(int id)? deleteTask,
+    TResult Function(bool? sort)? changeSort,
+    required TResult orElse(),
+  }) {
+    if (deleteTask != null) {
+      return deleteTask(id);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(Started value) started,
+    required TResult Function(ChangeTaskStatus value) changeTaskStatus,
+    required TResult Function(DeleteTask value) deleteTask,
+    required TResult Function(ChangeSort value) changeSort,
+  }) {
+    return deleteTask(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(Started value)? started,
+    TResult? Function(ChangeTaskStatus value)? changeTaskStatus,
+    TResult? Function(DeleteTask value)? deleteTask,
+    TResult? Function(ChangeSort value)? changeSort,
+  }) {
+    return deleteTask?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Started value)? started,
+    TResult Function(ChangeTaskStatus value)? changeTaskStatus,
+    TResult Function(DeleteTask value)? deleteTask,
+    TResult Function(ChangeSort value)? changeSort,
+    required TResult orElse(),
+  }) {
+    if (deleteTask != null) {
+      return deleteTask(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class DeleteTask implements TasksEvent {
+  const factory DeleteTask({required final int id}) = _$DeleteTaskImpl;
+
+  int get id;
+  @JsonKey(ignore: true)
+  _$$DeleteTaskImplCopyWith<_$DeleteTaskImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$ChangeSortImplCopyWith<$Res> {
+  factory _$$ChangeSortImplCopyWith(
+          _$ChangeSortImpl value, $Res Function(_$ChangeSortImpl) then) =
+      __$$ChangeSortImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({bool? sort});
+}
+
+/// @nodoc
+class __$$ChangeSortImplCopyWithImpl<$Res>
+    extends _$TasksEventCopyWithImpl<$Res, _$ChangeSortImpl>
+    implements _$$ChangeSortImplCopyWith<$Res> {
+  __$$ChangeSortImplCopyWithImpl(
+      _$ChangeSortImpl _value, $Res Function(_$ChangeSortImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? sort = freezed,
+  }) {
+    return _then(_$ChangeSortImpl(
+      sort: freezed == sort
+          ? _value.sort
+          : sort // ignore: cast_nullable_to_non_nullable
+              as bool?,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$ChangeSortImpl implements ChangeSort {
+  const _$ChangeSortImpl({required this.sort});
+
+  @override
+  final bool? sort;
+
+  @override
+  String toString() {
+    return 'TasksEvent.changeSort(sort: $sort)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ChangeSortImpl &&
+            (identical(other.sort, sort) || other.sort == sort));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, sort);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ChangeSortImplCopyWith<_$ChangeSortImpl> get copyWith =>
+      __$$ChangeSortImplCopyWithImpl<_$ChangeSortImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function(int id) changeTaskStatus,
+    required TResult Function(int id) deleteTask,
+    required TResult Function(bool? sort) changeSort,
+  }) {
+    return changeSort(sort);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? started,
+    TResult? Function(int id)? changeTaskStatus,
+    TResult? Function(int id)? deleteTask,
+    TResult? Function(bool? sort)? changeSort,
+  }) {
+    return changeSort?.call(sort);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function(int id)? changeTaskStatus,
+    TResult Function(int id)? deleteTask,
+    TResult Function(bool? sort)? changeSort,
+    required TResult orElse(),
+  }) {
+    if (changeSort != null) {
+      return changeSort(sort);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(Started value) started,
+    required TResult Function(ChangeTaskStatus value) changeTaskStatus,
+    required TResult Function(DeleteTask value) deleteTask,
+    required TResult Function(ChangeSort value) changeSort,
+  }) {
+    return changeSort(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(Started value)? started,
+    TResult? Function(ChangeTaskStatus value)? changeTaskStatus,
+    TResult? Function(DeleteTask value)? deleteTask,
+    TResult? Function(ChangeSort value)? changeSort,
+  }) {
+    return changeSort?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Started value)? started,
+    TResult Function(ChangeTaskStatus value)? changeTaskStatus,
+    TResult Function(DeleteTask value)? deleteTask,
+    TResult Function(ChangeSort value)? changeSort,
+    required TResult orElse(),
+  }) {
+    if (changeSort != null) {
+      return changeSort(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ChangeSort implements TasksEvent {
+  const factory ChangeSort({required final bool? sort}) = _$ChangeSortImpl;
+
+  bool? get sort;
+  @JsonKey(ignore: true)
+  _$$ChangeSortImplCopyWith<_$ChangeSortImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 mixin _$TasksState {
   List<TaskEntity>? get tasks => throw _privateConstructorUsedError;
+  bool? get sort => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(List<TaskEntity>? tasks) initial,
+    required TResult Function(List<TaskEntity>? tasks, bool? sort) initial,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(List<TaskEntity>? tasks)? initial,
+    TResult? Function(List<TaskEntity>? tasks, bool? sort)? initial,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(List<TaskEntity>? tasks)? initial,
+    TResult Function(List<TaskEntity>? tasks, bool? sort)? initial,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -356,7 +685,7 @@ abstract class $TasksStateCopyWith<$Res> {
           TasksState value, $Res Function(TasksState) then) =
       _$TasksStateCopyWithImpl<$Res, TasksState>;
   @useResult
-  $Res call({List<TaskEntity>? tasks});
+  $Res call({List<TaskEntity>? tasks, bool? sort});
 }
 
 /// @nodoc
@@ -373,12 +702,17 @@ class _$TasksStateCopyWithImpl<$Res, $Val extends TasksState>
   @override
   $Res call({
     Object? tasks = freezed,
+    Object? sort = freezed,
   }) {
     return _then(_value.copyWith(
       tasks: freezed == tasks
           ? _value.tasks
           : tasks // ignore: cast_nullable_to_non_nullable
               as List<TaskEntity>?,
+      sort: freezed == sort
+          ? _value.sort
+          : sort // ignore: cast_nullable_to_non_nullable
+              as bool?,
     ) as $Val);
   }
 }
@@ -391,7 +725,7 @@ abstract class _$$InitialImplCopyWith<$Res>
       __$$InitialImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({List<TaskEntity>? tasks});
+  $Res call({List<TaskEntity>? tasks, bool? sort});
 }
 
 /// @nodoc
@@ -406,12 +740,17 @@ class __$$InitialImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? tasks = freezed,
+    Object? sort = freezed,
   }) {
     return _then(_$InitialImpl(
       tasks: freezed == tasks
           ? _value._tasks
           : tasks // ignore: cast_nullable_to_non_nullable
               as List<TaskEntity>?,
+      sort: freezed == sort
+          ? _value.sort
+          : sort // ignore: cast_nullable_to_non_nullable
+              as bool?,
     ));
   }
 }
@@ -419,7 +758,8 @@ class __$$InitialImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$InitialImpl implements _Initial {
-  const _$InitialImpl({final List<TaskEntity>? tasks}) : _tasks = tasks;
+  const _$InitialImpl({final List<TaskEntity>? tasks, this.sort})
+      : _tasks = tasks;
 
   final List<TaskEntity>? _tasks;
   @override
@@ -432,8 +772,11 @@ class _$InitialImpl implements _Initial {
   }
 
   @override
+  final bool? sort;
+
+  @override
   String toString() {
-    return 'TasksState.initial(tasks: $tasks)';
+    return 'TasksState.initial(tasks: $tasks, sort: $sort)';
   }
 
   @override
@@ -441,12 +784,13 @@ class _$InitialImpl implements _Initial {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$InitialImpl &&
-            const DeepCollectionEquality().equals(other._tasks, _tasks));
+            const DeepCollectionEquality().equals(other._tasks, _tasks) &&
+            (identical(other.sort, sort) || other.sort == sort));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(_tasks));
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(_tasks), sort);
 
   @JsonKey(ignore: true)
   @override
@@ -457,27 +801,27 @@ class _$InitialImpl implements _Initial {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(List<TaskEntity>? tasks) initial,
+    required TResult Function(List<TaskEntity>? tasks, bool? sort) initial,
   }) {
-    return initial(tasks);
+    return initial(tasks, sort);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(List<TaskEntity>? tasks)? initial,
+    TResult? Function(List<TaskEntity>? tasks, bool? sort)? initial,
   }) {
-    return initial?.call(tasks);
+    return initial?.call(tasks, sort);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(List<TaskEntity>? tasks)? initial,
+    TResult Function(List<TaskEntity>? tasks, bool? sort)? initial,
     required TResult orElse(),
   }) {
     if (initial != null) {
-      return initial(tasks);
+      return initial(tasks, sort);
     }
     return orElse();
   }
@@ -512,10 +856,13 @@ class _$InitialImpl implements _Initial {
 }
 
 abstract class _Initial implements TasksState {
-  const factory _Initial({final List<TaskEntity>? tasks}) = _$InitialImpl;
+  const factory _Initial({final List<TaskEntity>? tasks, final bool? sort}) =
+      _$InitialImpl;
 
   @override
   List<TaskEntity>? get tasks;
+  @override
+  bool? get sort;
   @override
   @JsonKey(ignore: true)
   _$$InitialImplCopyWith<_$InitialImpl> get copyWith =>

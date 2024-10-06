@@ -58,4 +58,10 @@ class TaskLocalDataSource {
     tasks.insert(0, newTask);
     await saveTasks(tasks);
   }
+
+  Future<void> deleteTask(int id) async {
+    final tasks = getTasks();
+    final updatedTasks = tasks.where((task) => task.id != id).toList();
+    await saveTasks(updatedTasks);
+  }
 }
